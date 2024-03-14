@@ -94,4 +94,3 @@ Once launched, you'll be greeted with a command prompt where you can enter comma
   ```bash
   exit
   ```
-```
