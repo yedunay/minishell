@@ -14,9 +14,6 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-// Performs all redirections of 'cmd', from left-to-right, removing the
-// redirection tokens, knowing it's the 'n'-th command. Returns the exit status.
-// If a redirection error ocurrs, prints an error message.
 static int	redirect_one(char *redir, t_list *next, int n);
 
 int	redirect(t_list **cmd, int n)
@@ -44,10 +41,6 @@ int	redirect(t_list **cmd, int n)
 	return (exit_stat);
 }
 
-// Performs the redirection defined by 'redir', taking 'next' as the following 
-// token, knowing it's the 'n'-th command.
-// In the case of here documents, quote-removal is performed.
-// Returns the appropriate exit code after printing any error message.
 static int	redirect_one(char *redir, t_list *next, int n)
 {
 	char	*str;
@@ -69,9 +62,6 @@ static int	redirect_one(char *redir, t_list *next, int n)
 	return (EXIT_FAILURE);
 }
 
-// Opens the file 'filename' and links it to the standard output.
-// If 'append' is not zero, it opens the file with the O_APPEND flag.
-// Returns the appropriate exit code after printing any error message.
 int	link_output_file(const char *filename, int append)
 {
 	int	fd_file;
@@ -94,8 +84,6 @@ int	link_output_file(const char *filename, int append)
 	return (EXIT_SUCCESS);
 }
 
-// Opens the file 'filename' with the 'flags' and returns its file descriptor.
-// On failure, prints an error message and returns -1 (setting errno).
 int	open_file(const char *filename, int flags)
 {
 	int	fd_file;
@@ -106,8 +94,6 @@ int	open_file(const char *filename, int flags)
 	return (fd_file);
 }
 
-// Opens the file 'filename' and links it to the standard input.
-// Returns the appropriate exit code after printing any error message.
 int	link_input_file(const char *filename)
 {
 	int	fd_file;

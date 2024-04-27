@@ -11,8 +11,7 @@
 /* ************************************************************************** */
 
 #include "../inc/minishell.h"
-// Retuns a pointer to the first occurrence of 'c' in str.
-// If there aren't, returns NULL.
+
 char	*ft_strchr(const char *str, char c)
 {
 	while (str && *str)
@@ -24,9 +23,6 @@ char	*ft_strchr(const char *str, char c)
 	return (NULL);
 }
 
-// Returns an integer greater than, equal to, or less than 0, according as the 
-// string 's1' is greater than, equal to, or less than the string 's2', 
-// comparing not more than 'n' characters.
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
@@ -39,7 +35,6 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
-// Returns the length of the string 'str'.
 size_t	ft_strlen(const char *str)
 {
 	int	i;
@@ -50,9 +45,6 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-// Copies the 'src' string into 'dst', ensuring NUL-termination of the string.
-// If the return value is >= dstsize, the output string has been truncated.
-// It is the caller's responsibility to handle this.
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	srclen;
@@ -71,8 +63,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	return (srclen);
 }
 
-// Allocates and returns a copy of the given string.
-// Exits properly if malloc fails.
 char	*ft_strdup(const char *s1)
 {
 	size_t	len;

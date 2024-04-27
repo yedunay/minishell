@@ -13,7 +13,6 @@
 #include "../inc/minishell.h"
 #include <unistd.h>
 
-// If the given 'path' is not executable, prints an error message and exits.
 static void	check_path(const char *path)
 {
 	if (!path_exists(path))
@@ -33,10 +32,6 @@ static void	check_path(const char *path)
 	}
 }
 
-// Executes the shell command 'cmd' and exits, assuming 'cmd' is a non-empty
-// NULL-terminated array of strings in which the first element is the path or
-// name of the program and the following (if any) are the arguments.
-// On error, prints an error message and exits with the appropriate exit code.
 void	exec_cmd(char **cmd, char **env)
 {
 	char	**args;
@@ -53,8 +48,6 @@ void	exec_cmd(char **cmd, char **env)
 	exit(EXIT_FAILURE);
 }
 
-// Allocates and returns a string containing the full path of 'file' in 'dir'.
-// Example: if 'dir' is /folder and 'file' is myfile, returns "/folder/myfile".
 static char	*get_full_path(const char *dir, const char *file)
 {
 	char	*tmp;
@@ -66,9 +59,6 @@ static char	*get_full_path(const char *dir, const char *file)
 	return (full_path);
 }
 
-// Searches for 'file' using the PATH env variable and returns the first
-// full path for the executable file.
-// If the file is not found or is not executable, prints an error and exits.
 char	*get_executable(const char *file, char **env)
 {
 	char	*path;
@@ -97,9 +87,6 @@ char	*get_executable(const char *file, char **env)
 	exit(EXIT_CMD_NOT_FOUND);
 }
 
-// Allocates and returns a NULL-terminated array of strings containing the
-// values of the colon-separated environment value 'varname'.
-// If 'varname' does not exist, returns NULL.
 char	**env_get_vars(const char *varname, char **env)
 {
 	char	*value;

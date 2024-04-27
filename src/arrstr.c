@@ -12,8 +12,6 @@
 
 #include "../inc/minishell.h"
 
-// Allocates and returns a copy of the NULL-terminated array of strings 'arr'.
-// Exits properly if memory allocation fails.
 char	**arrstr_dup(char **arr)
 {
 	char	**new_arr;
@@ -29,15 +27,11 @@ char	**arrstr_dup(char **arr)
 	return (new_arr);
 }
 
-// Counts and returns the amount of elements in the NULL-terminated array 'arr'.
 size_t	arrstr_size(char **arr)
 {
 	return (arr_size((void *)arr));
 }
 
-// Allocates and returns a copy of the NULL-terminated array of strings 'arr'
-// with the string 'str' added at the end of it.
-// The original array 'arr' is freed. Exits properly if memory allocation fails.
 char	**arrstr_add(char **arr, const char *str)
 {
 	char	**new_arr;
@@ -55,9 +49,6 @@ char	**arrstr_add(char **arr, const char *str)
 	return (new_arr);
 }
 
-// Sets the value of the 'i'th string in the NULL-terminated array of strings
-// 'arr' to the string 'str'. Returns 'arr'.
-// Pre: 'i' must be smaller than the 'arr' size.
 char	**arrstr_set(char **arr, const char *str, int i)
 {
 	free(arr[i]);
@@ -65,7 +56,6 @@ char	**arrstr_set(char **arr, const char *str, int i)
 	return (arr);
 }
 
-// Frees the NULL-terminated array of strings 'arr'.
 void	arrstr_free(char **arr)
 {
 	char	**tmp;

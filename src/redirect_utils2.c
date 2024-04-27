@@ -16,13 +16,6 @@
 #include <readline/readline.h>
 #include <unistd.h>
 
-// Opens the file 'filename' with the 'flags' and returns its file descriptor.
-// On failure, prints an error message and returns -1 (setting errno).
-
-// Creates a here document, reading the standard input until 'd' is found and
-// saving the content into the specified temp 'file'.
-// If 'x' is TRUE, the variable names are expanded.
-// Exits with 0 on success, 1 on SIGINT received, or -1 in case of failure.
 static int	read_hd_child(const char *d, int x, const char *file, char **env)
 {
 	int		fd_file;
@@ -52,7 +45,6 @@ static int	read_hd_child(const char *d, int x, const char *file, char **env)
 	exit(close(fd_file));
 }
 
-// Allocates and returns a copy of 'str' with its $VARIABLES expanded.
 char	*expand_vars(const char *str, char **env)
 {
 	int		i;
@@ -82,10 +74,6 @@ char	*expand_vars(const char *str, char **env)
 	return (ret_str);
 }
 
-// Creates a here document, reading the standard input until 'delim' is found
-// and saving the content into the specified temp 'file'.
-// If 'exp' is TRUE, the variable names are expanded.
-// Returns 0 on success, 1 on SIGINT received, or -1 in case of failure.
 int	read_heredoc(const char *delim, int exp, const char *file, char **env)
 {
 	pid_t	pid;

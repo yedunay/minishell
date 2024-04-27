@@ -15,8 +15,6 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 
-// Prints the prompt and waits for user input (managing the history).
-// Allocates and returns the string provided by the user.
 char	*get_input(void)
 {
 	char	*str;

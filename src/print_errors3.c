@@ -15,7 +15,6 @@
 #include <errno.h>
 #include <string.h>
 
-// Prints an error message when trying to execute a null command.
 void	print_err_cmd_not_found(const char *cmdname)
 {
 	ft_putstr_fd("minish % ", STDERR_FILENO);
@@ -25,8 +24,6 @@ void	print_err_cmd_not_found(const char *cmdname)
 	ft_putendl_fd(MSG_CMD_NOT_FOUND, STDERR_FILENO);
 }
 
-// Prints the error message for when trying to execute a command using an
-// unset PATH variable.
 void	print_err_nofile(const char *cmdname)
 {
 	ft_putstr_fd("minish % ", STDERR_FILENO);
@@ -36,7 +33,6 @@ void	print_err_nofile(const char *cmdname)
 	ft_putendl_fd(MSG_NOFILE, STDERR_FILENO);
 }
 
-// Prints an error message when the given path is a directory.
 void	print_err_isdir(const char *path)
 {
 	ft_putstr_fd("minish % ", STDERR_FILENO);
@@ -46,7 +42,6 @@ void	print_err_isdir(const char *path)
 	ft_putendl_fd(MSG_IS_DIR, STDERR_FILENO);
 }
 
-// Prints the corresponding execution error message (according to errno).
 void	print_err_exec(const char *cmdname)
 {
 	ft_putstr_fd("minish % ", STDERR_FILENO);
@@ -59,7 +54,6 @@ void	print_err_exec(const char *cmdname)
 		ft_putendl_fd(strerror(errno), STDERR_FILENO);
 }
 
-// Prints the corresponding filename error message (according to errno).
 void	print_err_filename(const char *filename)
 {
 	ft_putstr_fd("minish % ", STDERR_FILENO);

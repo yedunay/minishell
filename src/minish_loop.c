@@ -29,7 +29,6 @@ static int	control_and_c(int exit_status)
 	return (exit_status);
 }
 
-// Frees an array of commands (as a list of tokens).
 static void	free_commands(t_list **commands)
 {
 	int	i;
@@ -40,8 +39,6 @@ static void	free_commands(t_list **commands)
 	free(commands);
 }
 
-// Returns TRUE if there are no 'commands', freeing the referenced
-// 'commands' array of commands if needed.
 static int	not_commands(t_list	**commands)
 {
 	if (!commands)

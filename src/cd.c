@@ -13,7 +13,6 @@
 #include "../inc/minishell.h"
 #include <unistd.h>
 
-// Makes sure the pointed 'path' string ends in '/'
 static void	end_in_slash(char **path)
 {
 	if ((*path)[ft_strlen(*path)] != '/')
@@ -27,8 +26,6 @@ static int	is_relativepath(char *str)
 	return (FALSE);
 }
 
-// If the string 'str' uses the dir "." or ".." returns TRUE.
-// Otherwise returns FALSE.
 static int	is_same_or_parent_dir(char *str)
 {
 	if (str[0] != '.')
@@ -40,9 +37,6 @@ static int	is_same_or_parent_dir(char *str)
 	return (FALSE);
 }
 
-// Tries to change directory for any 'path' with 'str' at the end.
-// If it succeeds, stops trying and retuns TRUE.
-// FALSE otherwise.
 static int	try_cdpath(char *str, char **env)
 {
 	char	**path;
@@ -66,12 +60,6 @@ static int	try_cdpath(char *str, char **env)
 	return (FALSE);
 }
 
-// Changes the actual dir.
-// If no 'args' is set, search for the env variable PATH.
-// The first element of 'args' is taken as the new path.
-// It it is a relative path tries appending CDPATH values, printing the current
-// working dir on success.
-// If some error is found returns after printing an error message.
 int	cd_builtin(char **args, char **env)
 {
 	if (*args == NULL)

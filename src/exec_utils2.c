@@ -14,7 +14,6 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-// Returns TRUE if the given 'path' exists. Otherwise, returns FALSE.
 int	path_exists(const char *path)
 {
 	if (access(path, F_OK) == -1)
@@ -22,7 +21,6 @@ int	path_exists(const char *path)
 	return (TRUE);
 }
 
-// Returns TRUE if the given 'path' is a directory. Otherwise, returns FALSE.
 int	is_directory(const char *path)
 {
 	struct stat	stats;
@@ -33,7 +31,6 @@ int	is_directory(const char *path)
 	return (FALSE);
 }
 
-// Returns TRUE if 'path' is an executable file. Otherwise, returns FALSE.
 int	can_execute(const char *path)
 {
 	if (access(path, X_OK) == -1)
@@ -41,8 +38,6 @@ int	can_execute(const char *path)
 	return (TRUE);
 }
 
-// Waits for 'n' (n > 0) children processes to finish and returns the
-// exit status of the 'last_pid' (if exited).
 int	wait_children(pid_t last_pid, size_t n)
 {
 	pid_t	pid;
@@ -69,10 +64,6 @@ int	wait_children(pid_t last_pid, size_t n)
 	return (EXIT_FAILURE);
 }
 
-// Executes the builtin defined by 'cmd' assuming there are no redirections and
-// modifying the 'env' if required.
-// The 'child' flag indicates if we're on a child process.
-// Returns the exit status.
 int	execute_builtin(t_list *cmd, int exit_status, char ***env, int child)
 {
 	char	**args;

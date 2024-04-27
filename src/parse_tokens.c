@@ -12,8 +12,6 @@
 
 #include "../inc/minishell.h"
 
-// Returns TRUE if the token at 'node' is a valid redirection token,
-// returns FALSE otherwise.
 static int	is_valid_redir(t_list *node)
 {
 	t_token	*next_tok;
@@ -26,8 +24,6 @@ static int	is_valid_redir(t_list *node)
 	return (TRUE);
 }
 
-// Returns TRUE if the token at 'node' is a valid pipe token,
-// returns FALSE otherwise.
 static int	is_valid_pipe(t_list *node)
 {
 	t_token	*prev_tok;
@@ -44,8 +40,6 @@ static int	is_valid_pipe(t_list *node)
 		return (FALSE);
 }
 
-// Returns the amount of commands in the NULL-terminated 'tokens' array.
-// If a syntax error is found, prints an error message and returns -1.
 static int	count_commands_checking_syntax(t_list *tokens)
 {
 	int		cmd_amount;
@@ -72,9 +66,6 @@ static int	count_commands_checking_syntax(t_list *tokens)
 	return (cmd_amount);
 }
 
-// Creates and adds a new command to the 'cmd' list, adding all the tokens from
-// 'node' until a PIPE is found (or there are no more tokens).
-// At the end, 'node' points to the node after the PIPE (or NULL).
 static void	add_cmd(t_list **cmd, t_list **node)
 {
 	t_list	*next_node;
@@ -101,10 +92,6 @@ static void	add_cmd(t_list **cmd, t_list **node)
 	return ;
 }
 
-// Parses the list of tokens and splits them into an array of commands, using
-// the PIPE token as a separator. Allocates and returns the array of commands.
-// If a syntax error is found, prints an error message, 'exit_status' is set to 
-// the corresponding value and returns NULL.
 t_list	**parse(t_list *tokens, int *exit_status)
 {
 	int		cmd_amount;

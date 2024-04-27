@@ -12,8 +12,6 @@
 
 #include "../inc/minishell.h"
 
-// Return the amount of digits needed to represent n in decimal (including
-// sign, if needed).
 static int	digit_count(int n)
 {
 	int	digits;
@@ -31,9 +29,6 @@ static int	digit_count(int n)
 	return (digits);
 }
 
-// Allocates (with malloc(3)) and returns a string representing the integer
-// received as an argument. Negative numbers must be handled.
-// Exits properly if malloc fails.
 char	*ft_itoa(int n)
 {
 	char	*str;

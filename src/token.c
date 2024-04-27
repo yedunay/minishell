@@ -12,7 +12,6 @@
 
 #include "../inc/minishell.h"
 
-// Given a string representing a token, returns its type.
 int	tok_type(const char *str)
 {
 	if (!str)
@@ -27,7 +26,6 @@ int	tok_type(const char *str)
 	return (INVALID);
 }
 
-// Returns a token (with its type) given a string representing it.
 t_token	tok_create(const char *str)
 {
 	t_token	token;
@@ -37,7 +35,6 @@ t_token	tok_create(const char *str)
 	return (token);
 }
 
-// Returns a token of type NULL_TOK (used on special cases).
 t_token	tok_create_null(void)
 {
 	t_token	token;
@@ -47,14 +44,12 @@ t_token	tok_create_null(void)
 	return (token);
 }
 
-// Frees the 'token' node and its content.
 void	tok_del(void *token)
 {
 	free(((t_token *)token)->val);
 	free(token);
 }
 
-// Given a token list 'node' returns a pointer to its 'token' value.
 t_token	*tok_get(t_list *node)
 {
 	if (!node)

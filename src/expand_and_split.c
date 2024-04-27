@@ -12,8 +12,6 @@
 
 #include "../inc/minishell.h"
 
-// Expands the variables of the command 'cmd' (as a list of tokens) and splits
-// words if needed. Finally, performs quote removal and returns the result.
 static t_list	*expand_and_split_cmd(t_list *cmd, int exit_status, char **env)
 {
 	t_list	*new_cmd;
@@ -28,8 +26,6 @@ static t_list	*expand_and_split_cmd(t_list *cmd, int exit_status, char **env)
 	return (new_cmd);
 }
 
-// Expands the env variables and $? of the 'commands' and split words if needed.
-// Finally, performs quote removal and returns the result.
 t_list	**expand_and_split(t_list **commands, int exit_status, char **env)
 {
 	int		i;
@@ -48,7 +44,6 @@ t_list	**expand_and_split(t_list **commands, int exit_status, char **env)
 	return (commands);
 }
 
-// Adds the 'to_add' list nodes right before the 'pos' position.
 void	lst_add_many(t_list **lst, t_list *pos, t_list *to_add)
 {
 	t_list	*prev;
@@ -77,8 +72,6 @@ void	lst_add_many(t_list **lst, t_list *pos, t_list *to_add)
 		*lst = to_add;
 }
 
-// Recives the expanded, splited, quote-removed xtokens and converts them into a
-// token list(cmd).
 t_list	*normalize(t_list *xtokens)
 {
 	t_list	*cmd;

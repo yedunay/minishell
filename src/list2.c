@@ -12,9 +12,6 @@
 
 #include "../inc/minishell.h"
 
-// Takes as a parameter a node and frees the memory of the node’s content using
-// the function 'del' given as a parameter and free the node. The memory of
-// 'nxt' and 'pre' must not be freed.
 void	lst_delone(t_list *lst, void (*del)(void *))
 {
 	if (!lst)
@@ -23,8 +20,6 @@ void	lst_delone(t_list *lst, void (*del)(void *))
 	free(lst);
 }
 
-// Removes and frees the given 'to_rm' node from the list, using the function 
-// 'del' and free(3). 
 void	lst_rm_one(t_list **lst, t_list *to_rm, void (*del)(void *))
 {
 	if (*lst == to_rm)
@@ -33,8 +28,6 @@ void	lst_rm_one(t_list **lst, t_list *to_rm, void (*del)(void *))
 	lst_delone(to_rm, del);
 }
 
-// Removes and frees 'n' list nodes starting from 'to_rm', using the function 
-// 'del' and free(3). 
 void	lst_rm_many(t_list **lst, t_list *to_rm, size_t n, void (*del)(void *))
 {
 	t_list	*prev;
@@ -55,8 +48,6 @@ void	lst_rm_many(t_list **lst, t_list *to_rm, size_t n, void (*del)(void *))
 	lst_link(prev, next);
 }
 
-// Returns the n-th node moving forward from 'node'.
-// If 'n' is negative, moves backwards.
 t_list	*lst_move(t_list *node, int n)
 {
 	while (n != 0)
@@ -77,7 +68,6 @@ t_list	*lst_move(t_list *node, int n)
 	return (node);
 }
 
-// Counts and returns the amount of nodes in a list.
 size_t	lst_size(t_list *lst)
 {
 	size_t	size;

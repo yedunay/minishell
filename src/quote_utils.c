@@ -12,8 +12,6 @@
 
 #include "../inc/minishell.h"
 
-// Given the current quote status and a character 'c', updates its value and
-// returns the status for 'c'.
 int	quote_stat(int *curr_stat, char c)
 {
 	if (c == '"')
@@ -39,7 +37,6 @@ int	quote_stat(int *curr_stat, char c)
 	return (*curr_stat);
 }
 
-// Removes all unquoted ocurrences of ' and " that didn't result form expansion.
 static void	remove_quotes_xtok(t_xtoken *xtok)
 {
 	t_xchar	quote;
@@ -53,8 +50,6 @@ static void	remove_quotes_xtok(t_xtoken *xtok)
 	xtok_rm_xcs(xtok, &dquote);
 }
 
-// For each word on the 'xtokens' list, removes all unquoted ocurrences of 
-// ' and " that didn't result form expansion (excluding those after << redirs).
 void	remove_quotes(t_list *xtokens)
 {
 	t_xtoken	*xtok;

@@ -12,7 +12,6 @@
 
 #include "../inc/minishell.h"
 
-// Given a xchar list 'node' returns its 'xchar' value
 t_xchar	xc_get(t_list *node)
 {
 	t_xchar	xc;
@@ -21,7 +20,6 @@ t_xchar	xc_get(t_list *node)
 	return (xc);
 }
 
-// Creates and returns a new xchar with the 'c' char and the given flags.
 t_xchar	xc_new(char c, int x_flag, int q_flag)
 {
 	t_xchar	xc;
@@ -32,7 +30,6 @@ t_xchar	xc_new(char c, int x_flag, int q_flag)
 	return (xc);
 }
 
-// Allocates and returns a list representing the 'str', with its given flags.
 t_list	*str_to_xclst(const char *str, int x_flag, int q_flag)
 {
 	t_list	*lst;

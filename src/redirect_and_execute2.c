@@ -13,8 +13,6 @@
 #include "../inc/minishell.h"
 #include <unistd.h>
 
-// If 'mode' = SAVE: Saves the standard input and output.
-// If 'mode' = RESTORE: Restores the previously saved standard input and output.
 void	save_restore_stdio(int std_in, int std_out, int mode)
 {
 	static int	saved_stdin;

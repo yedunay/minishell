@@ -12,7 +12,6 @@
 
 #include "../inc/minishell.h"
 
-// Given a xtoken list 'node' returns a pointer to its 'xtoken' value.
 t_xtoken	*xtok_get(t_list *node)
 {
 	if (!node)
@@ -20,15 +19,11 @@ t_xtoken	*xtok_get(t_list *node)
 	return ((t_xtoken *)node->val);
 }
 
-// Adds 'xc' at the end of 'xtok'.
 void	xtok_addxc(t_xtoken *xtok, t_xchar xc)
 {
 	lst_add(&(xtok->val), lst_new(&xc, sizeof(xc)));
 }
 
-// Returns an integer greater than, equal to, or less than 0, according as the
-// string the value of 'xtok' is greater than, equal to, or less than 'str',
-// comparing not more than 'n' characters.
 int	xtok_strncmp(t_xtoken *xtok, const char *str, size_t n)
 {
 	int		ret;
@@ -40,7 +35,6 @@ int	xtok_strncmp(t_xtoken *xtok, const char *str, size_t n)
 	return (ret);
 }
 
-// Allocates and returns a string representing the given list of xchars 'xclst'.
 char	*xclst_to_str(t_list *xclst)
 {
 	char	*str;
@@ -61,8 +55,6 @@ char	*xclst_to_str(t_list *xclst)
 	return (str);
 }
 
-// Converts the given xtoken to a token, losing the xchar flags and keeping the
-// token type.
 t_token	xtok_to_tok(t_xtoken *xtok)
 {
 	t_token	tok;

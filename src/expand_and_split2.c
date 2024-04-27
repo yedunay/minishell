@@ -12,9 +12,6 @@
 
 #include "../inc/minishell.h"
 
-// Given that the xchar list 'node' points to the '$' character of an 
-// environment variable name, expands its value updating the list 'lst'.
-// Finally, 'node' points to the xchar right after the expanded variable value.
 static void	expand_var(t_list **lst, t_list **node, char **env)
 {
 	char	*name;
@@ -36,9 +33,6 @@ static void	expand_var(t_list **lst, t_list **node, char **env)
 		lst_rm_many(lst, lst_move(*node, -(len + 1)), len + 1, free);
 }
 
-// Given that 'node' points to the $ character of "$?", expands the value 
-// of 'exit_status' updating the list 'lst'.
-// Finally, 'node' points to the xchar right after the expanded value.
 static void	expand_exit_stat(t_list **lst, t_list **node, int exit_status)
 {
 	char	*value;
@@ -55,9 +49,6 @@ static void	expand_exit_stat(t_list **lst, t_list **node, int exit_status)
 		lst_rm_many(lst, lst_move(*node, -2), 2, free);
 }
 
-// Returns TRUE if the list of xchars pointed by 'node' represents a string that
-// should trigger an expansion.
-// That is, a '$' followed by a '?' or a valid environment variable name.
 static int	try_to_expand(t_list *node)
 {
 	t_xchar	xc;
@@ -73,8 +64,6 @@ static int	try_to_expand(t_list *node)
 	return (FALSE);
 }
 
-// Expands the env variables (or exit status) of the given xtoken (if is word),
-// updating the expanded xchar flags if needed.
 static void	expand_xtok(t_xtoken *xtok, int exit_status, char **env)
 {
 	t_list	*node;
@@ -96,9 +85,6 @@ static void	expand_xtok(t_xtoken *xtok, int exit_status, char **env)
 	}
 }
 
-// Given a list of tokens, allocates and returns a list of xtokens with its
-// environment variables (or exit status) expanded, preserving the original
-// token type and setting each character's flags for expanded and quoted status.
 t_list	*expand(t_list *toks, int exit_status, char **env)
 {
 	t_list		*xtoks;

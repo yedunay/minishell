@@ -13,8 +13,6 @@
 #include "../inc/minishell.h"
 #include <unistd.h>
 
-// Redirects and executes the given command 'cmd' on the current shell
-// environment, returning the exit status.
 static int	process_builtin_here(t_list **cmd, int exit_status, char ***env)
 {
 	int	exit_stat;
@@ -35,9 +33,6 @@ static int	process_builtin_here(t_list **cmd, int exit_status, char ***env)
 	return (exit_stat);
 }
 
-// Reads all the here documents from the array of commands 'cmds', from left
-// to right, into the appropriate temp files to be read afterwards.
-// Returns 0 on success. Otherwise, returns a non-zero value.
 int	read_all_heredocs(t_list **cmds, int cmds_amount, char **env)
 {
 	int		i;
@@ -54,8 +49,6 @@ int	read_all_heredocs(t_list **cmds, int cmds_amount, char **env)
 	return (0);
 }
 
-// Updates the pipe's file descriptor updates from the parent process for the 
-// i-th command, closing previous file descriptors and preparing for next.
 static void	parent_pipe_update(t_pipe *p, int i)
 {
 	if (i > 0)
@@ -70,9 +63,6 @@ static void	parent_pipe_update(t_pipe *p, int i)
 	}
 }
 
-// Redirects and executes the commands defined by the array of commands 'cmds',
-// assuming p->cmds_amount is already initialized. All commands are executed in
-// subprocesses. Returns the exit status of the last command.
 static int	process_commands(t_list **cmds, t_pipe *p, int e_stat, char **env)
 {
 	int		exit_stat;
@@ -101,9 +91,6 @@ static int	process_commands(t_list **cmds, t_pipe *p, int e_stat, char **env)
 	return (exit_stat);
 }
 
-// Performs all redirections and command/builtin executions defined by the array
-// of lists 'commands', updating the 'exit_status' and environment 'env'
-// accordingly.
 void	redirect_and_execute(t_list **commands, int *exit_status, char ***env)
 {
 	t_pipe	p;

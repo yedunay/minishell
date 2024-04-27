@@ -37,9 +37,6 @@ static int	get_flag(char **args)
 	return (idx);
 }
 
-// Output the 'args', separated by spaces, followed by a newline.
-// The return status is always 0.
-// If -n is specified, the trailing newline is suppressed.
 int	echo_builtin(char **args)
 {
 	int	first;

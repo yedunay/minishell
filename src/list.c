@@ -12,7 +12,6 @@
 
 #include "../inc/minishell.h"
 
-// Adds the node 'to_add' at the end of the list.
 void	lst_add(t_list **lst, t_list *to_add)
 {
 	t_list	*node;
@@ -24,7 +23,6 @@ void	lst_add(t_list **lst, t_list *to_add)
 		*lst = to_add;
 }
 
-// Returns the last node of the list.
 t_list	*lst_last(t_list *lst)
 {
 	while (lst && lst->nxt)
@@ -32,7 +30,6 @@ t_list	*lst_last(t_list *lst)
 	return (lst);
 }
 
-// Links the list nodes 'n1' and 'n2', so that 'n2' follows 'n1'.
 void	lst_link(t_list *n1, t_list *n2)
 {
 	if (n1)
@@ -41,9 +38,6 @@ void	lst_link(t_list *n1, t_list *n2)
 		n2->pre = n1;
 }
 
-// Allocates (with malloc(3)) and returns a new node.
-// The member variable 'val' is initialized with the value of the parameter
-// 'value'. 'nxt' and 'pre' are initialized to NULL.
 t_list	*lst_new(void *value, size_t size)
 {
 	t_list	*lstnode;
@@ -56,9 +50,6 @@ t_list	*lst_new(void *value, size_t size)
 	return (lstnode);
 }
 
-// Deletes and frees the given node and every successor of that node, using the
-// function 'del' and free(3). 
-// Finally, the pointer to the list must be set to NULL.
 void	lst_clear(t_list **lst, void (*del)(void *))
 {
 	t_list	*node;

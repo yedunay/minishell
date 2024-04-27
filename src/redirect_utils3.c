@@ -13,8 +13,6 @@
 #include "../inc/minishell.h"
 #include <unistd.h>
 
-// Creates a pipe and allocates a pair of file descriptors at 'fd_pipe'.
-// On failure, prints an error message and exits.
 void	pipe_or_die(int fd_pipe[2])
 {
 	if (pipe(fd_pipe) == -1)
@@ -24,9 +22,6 @@ void	pipe_or_die(int fd_pipe[2])
 	}
 }
 
-// Creates a new process (using fork()) returning 0 to the child process and the
-// pid of the child to the parent.
-// On failure, prints an error message (TODO) and exits.
 pid_t	fork_or_die(void)
 {
 	pid_t	pid;
@@ -37,9 +32,6 @@ pid_t	fork_or_die(void)
 	return (pid);
 }
 
-// Redirects and executes the command 'cmd' in a subshell, taking into account
-// it is the i-th command of the pipeline.
-// It exits with the appropriate exit status, or returns with a non-zero value.
 int	process_command(t_pipe *p, t_list *cmd, int e_stat, char **env)
 {
 	int		exit_stat;
@@ -57,7 +49,6 @@ int	process_command(t_pipe *p, t_list *cmd, int e_stat, char **env)
 	return (EXIT_FAILURE);
 }
 
-// Links the standard output to the read end of a pipe, closing the write end.
 void	link_read_end(int *fd_pipe)
 {
 	close(fd_pipe[WRITE_END]);
@@ -65,7 +56,6 @@ void	link_read_end(int *fd_pipe)
 	close(fd_pipe[READ_END]);
 }
 
-// Links the standard output to the write end of a pipe, closing the read end.
 void	link_write_end(int *fd_pipe)
 {
 	close(fd_pipe[READ_END]);

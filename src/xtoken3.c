@@ -12,7 +12,6 @@
 
 #include "../inc/minishell.h"
 
-// Removes all ocurrences of 'to_rm' from the given xtoken.
 void	xtok_rm_xcs(t_xtoken *xtok, t_xchar *to_rm)
 {
 	t_xchar	xc;
@@ -34,8 +33,6 @@ void	xtok_rm_xcs(t_xtoken *xtok, t_xchar *to_rm)
 	}
 }
 
-// Converts the given token to a xtoken, keeping the token type and setting the
-// appropriate xchar flags.
 t_xtoken	tok_to_xtok(t_token *tok)
 {
 	t_xtoken	xtok;

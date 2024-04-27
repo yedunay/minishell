@@ -60,7 +60,6 @@ int	print_err_numeric_arg(const char *arg)
 	return (EXIT_NUMARG);
 }
 
-// Prints an error message when user is not allowed to execute 'cmdname'.
 void	print_err_perm_denied(const char *cmdname)
 {
 	ft_putstr_fd("minish % ", STDERR_FILENO);

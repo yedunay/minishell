@@ -14,8 +14,6 @@
 #include <stdio.h>
 #include <readline/readline.h>
 
-// Allocates and returns a string representing the here document temp filename
-// for the 'n'-th command.
 char	*heredoc_filename(int n)
 {
 	char	*tmp;
@@ -28,7 +26,6 @@ char	*heredoc_filename(int n)
 	return (filename);
 }
 
-// Performs quote removal on 'word'.
 void	delim_quote_remove(char **word)
 {
 	char	last_quote;
@@ -54,8 +51,6 @@ void	delim_quote_remove(char **word)
 	*word = str;
 }
 
-// Returns TRUE if the null-terminated string 'word' has any ' or " character.
-// Otherwise, returns FALSE.
 int	has_quotes(const char *word)
 {
 	if (!ft_strchr(word, '"') && !ft_strchr(word, '\''))
@@ -63,9 +58,6 @@ int	has_quotes(const char *word)
 	return (TRUE);
 }
 
-// Reads the here document for the 'n'-th command, assuming 'str' is the word
-// right next to the << token.
-// Returns 0 on success, or -1 in case of failure (setting errno).
 static int	read_heredoc_n(const char *str, int n, char **env)
 {
 	char	*delim;
@@ -83,10 +75,6 @@ static int	read_heredoc_n(const char *str, int n, char **env)
 	return (ret);
 }
 
-// Reads the here documents for 'cmd' from left to right, into a temp file
-// knowing it's the 'n'-th command.
-// If there's more than one here document, the previous ones are overwritten.
-// Returns 0 on success. Otherwise, returns a non-zero value.
 int	read_heredocs(t_list *cmd, int n, char **env)
 {
 	t_list	*node;

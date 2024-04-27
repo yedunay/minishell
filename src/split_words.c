@@ -12,8 +12,6 @@
 
 #include "../inc/minishell.h"
 
-// Returns TRUE if the value of 'xc_node' is a blank char (space or tab) that 
-// is also expanded and non-double-quoted.
 static int	is_delim(t_xchar xc)
 {
 	if (is_blankchr(xc.c) && xc.x == EXPANDED && xc.q != DQUOTED)
@@ -21,8 +19,6 @@ static int	is_delim(t_xchar xc)
 	return (FALSE);
 }
 
-// Removes and frees all blank elements from 'xc_lst' that are also expanded
-// and non-double-quoted, until the first that don't comply all conditions.
 static void	rm_first_delims(t_list **xc_lst)
 {
 	t_list	*xc_node;
@@ -38,9 +34,6 @@ static void	rm_first_delims(t_list **xc_lst)
 	*xc_lst = xc_node;
 }
 
-// Starting from 'xc_lst', pops the first word, returning it as an xtoken of
-// type WORD. At the end, 'xc_lst' points to the xchar right after the word.
-// If there is no word to pop, returns NULL.
 static t_xtoken	pop_word(t_list **xc_lst)
 {
 	t_list		*xc;
@@ -61,9 +54,6 @@ static t_xtoken	pop_word(t_list **xc_lst)
 	return (xtok);
 }
 
-// Given the 'xtoken' node of the 'xtokens' list, perform word_splitting on it.
-// Unquoted implicit null tokens are removed.
-// At the end, 'xtoken' points to the next element of the list.
 static void	split_words_xtok(t_list **xtokens, t_list **xtoken)
 {
 	t_xtoken	split_word;
@@ -85,9 +75,6 @@ static void	split_words_xtok(t_list **xtokens, t_list **xtoken)
 	*xtoken = next_node;
 }
 
-// Receives a list of xtokens and performs word splitting on the
-// non-double-quoted expanded parts of words.
-// Unquoted implicit null tokens are removed.
 void	split_words(t_list **xtokens)
 {
 	t_list		*node;

@@ -12,8 +12,6 @@
 
 #include "../inc/minishell.h"
 
-// Counts the amount of substrings resulting from splitting 's' using the
-// char 'c' as a delimeter.
 static size_t	count_substr(char *s, char c)
 {
 	size_t	count;
@@ -38,9 +36,6 @@ static size_t	count_substr(char *s, char c)
 	return (count);
 }
 
-// Allocates and returns the first substring on 's' using 'c' as a delimeter.
-// The string pointed by 's' is now pointing just after the popped substring.
-// Exits properly if malloc fails.
 static char	*pop_str(char **s, char c)
 {
 	char	*substr;
@@ -59,7 +54,6 @@ static char	*pop_str(char **s, char c)
 	return (substr);
 }
 
-// Fees allocated space in a NULL-terminated array. Returns NULL.
 static void	*freearr(char **arr)
 {
 	char	**arrcpy;
@@ -74,9 +68,6 @@ static void	*freearr(char **arr)
 	return (NULL);
 }
 
-// Allocates (with malloc(3)) and returns an array of strings obtained by
-// splitting 's' using the character 'c' as a delimiter.
-// Exits properly if malloc fails.
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;

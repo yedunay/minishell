@@ -42,7 +42,6 @@ static void	heredoc_handler(int sig)
 	}
 }
 
-// If print is TRUE signals will be printed, otherwise they won't. 
 void	signals_print_handler(int print)
 {
 	struct termios	tc;
@@ -54,14 +53,12 @@ void	signals_print_handler(int print)
 	tcsetattr(0, TCSANOW, &tc);
 }
 
-// Stops listening to SIGINT and SIGQUIT signals.
 void	stop_signals(void)
 {
 	signal(SIGINT, SIG_IGN);
 	signal(SIGQUIT, SIG_IGN);
 }
 
-// Sets the signal mode.
 void	set_signals(int mode)
 {
 	if (mode == INTER)

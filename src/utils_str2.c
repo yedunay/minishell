@@ -13,7 +13,6 @@
 #include "../inc/minishell.h"
 #include <unistd.h>
 
-// Outputs the string ’s’ to the given file descriptor.
 void	ft_putstr_fd(const char *s, int fd)
 {
 	size_t	slen;
@@ -24,7 +23,6 @@ void	ft_putstr_fd(const char *s, int fd)
 	write(fd, s, slen);
 }
 
-// Outputs the string ’s’ to the given file descriptor followed by a newline.
 void	ft_putendl_fd(const char *s, int fd)
 {
 	ft_putstr_fd(s, fd);

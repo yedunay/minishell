@@ -42,7 +42,6 @@ static int	ft_check_llong(char *arg)
 	return (TRUE);
 }
 
-// Long long range: -9223372036854775808 > 9223372036854775807
 static int	is_longlong(char *arg)
 {
 	int	i;
@@ -65,10 +64,6 @@ static int	is_longlong(char *arg)
 	return (ft_check_llong(arg));
 }
 
-// Exits the program. If is_child does not print exit when executed.
-// If no args exits with the previous exit_status.
-// If args is only one value inside long long range, returns its module of 256.
-// Does its error behaviour.
 int	exit_builtin(char **args, int exit_status, int is_child)
 {
 	long long	exit_stat;

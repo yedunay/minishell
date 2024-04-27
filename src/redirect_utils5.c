@@ -14,8 +14,6 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-// Links the 'n'-th command's here document to the standard input.
-// Returns the appropriate exit code after printing any error message.
 int	link_heredoc(int n)
 {
 	char	*filename;
@@ -35,8 +33,6 @@ int	link_heredoc(int n)
 	return (EXIT_SUCCESS);
 }
 
-// Executes the command 'cmd' (which might be a builtin) assuming there are no
-// redirections and exits with the appropriate exit status.
 void	execute_command(t_list *cmd, int exit_status, char **env)
 {
 	int		exit_stat;
@@ -58,8 +54,6 @@ void	execute_command(t_list *cmd, int exit_status, char **env)
 	exit(EXIT_FAILURE);
 }
 
-// Allocates and returns a NULL-terminated array of strings representing the
-// list of tokens 'cmd'.
 char	**get_args_from_cmd(t_list *cmd)
 {
 	char	**args;
@@ -80,7 +74,6 @@ char	**get_args_from_cmd(t_list *cmd)
 	return (args);
 }
 
-// Removes the temporary here document files, up to the 'n'-th command.
 void	clear_heredocs(int n)
 {
 	char	*filename;

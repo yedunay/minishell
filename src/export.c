@@ -30,7 +30,6 @@ static void	printvar_quoted(const char *var)
 	write(1, "\"\n", 2);
 }
 
-// Prints the variables in env and reurns 0.
 static int	export_noargs(char **env)
 {
 	int	i;
@@ -53,9 +52,6 @@ static int	export_noargs(char **env)
 	return (0);
 }
 
-// Export every variable in 'args' to env.
-// If no errors are found, returns 0.
-// Otherwise returns error with the proper message and exit_status.
 int	export_builtin(char **args, char ***env, int exit_status)
 {
 	char	*varname;
@@ -84,7 +80,6 @@ int	export_builtin(char **args, char ***env, int exit_status)
 	return (exit_status);
 }
 
-// Allocates and returns a string consisting of 'varname' + "=" + 'value'.
 static char	*join_varline(const char *varname, const char *value, int fl)
 {
 	char	*varline;
@@ -104,7 +99,6 @@ static char	*join_varline(const char *varname, const char *value, int fl)
 	return (varline);
 }
 
-// Sets the environment variable 'varname' to 'value', creating it if needed.
 void	env_set_var(const char *varname, const char *value, char ***env, int fl)
 {
 	int		var_index;

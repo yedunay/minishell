@@ -12,7 +12,6 @@
 
 #include "../inc/minishell.h"
 
-// Returns the first node of the list.
 t_list	*lst_first(t_list *lst)
 {
 	while (lst && lst->pre)

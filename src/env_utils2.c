@@ -12,9 +12,6 @@
 
 #include "../inc/minishell.h"
 
-// Checks and returns TRUE if the given 'word' us a valid variable name.
-// A valid name consists only of alphanumeric characters and underscores, and
-// begins with an alphabetic character or an underscore.
 int	env_valid_varname(char *word)
 {
 	if (!word || !*word)
@@ -30,9 +27,6 @@ int	env_valid_varname(char *word)
 	return (FALSE);
 }
 
-// Allocates and returns a copy of the NULL-terminated array of strings 'arr'
-// with the 'i'th string removed from it. The original array 'arr' is freed.
-// Exits properly if memory allocation fails.
 char	**arrstr_rm(char **arr, int i)
 {
 	char	**orig_arr;
@@ -56,7 +50,6 @@ char	**arrstr_rm(char **arr, int i)
 	return (new_arr);
 }
 
-// Removes the environment variable 'varname'.
 void	env_rm_var(const char *varname, char ***env)
 {
 	int	var_index;
@@ -66,9 +59,6 @@ void	env_rm_var(const char *varname, char ***env)
 		*env = arrstr_rm(*env, var_index);
 }
 
-// Unset every variable in args from env.
-// If no errors are found, returns 0.
-// Otherwise returns error with the proper message and exit_status.
 int	unset_builtin(char **args, char ***env)
 {
 	int	i;

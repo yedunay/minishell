@@ -164,8 +164,6 @@ enum				e_token_type
 	NULL_TOK
 };
 
-// A token can be of type WORD, REDIRection, PIPE or INVALID.
-// It's value is defined as a string.
 typedef struct s_token
 {
 	char			*val;
@@ -211,8 +209,6 @@ t_list				**expand_and_split(t_list **commands, int exit_status,
 # define UNEXPANDED 0
 # define EXPANDED 1
 
-// An xchar associates a char with a couple of flags to indicate its quote
-// status ('q') and if it resulted from an expansion ('x').
 typedef struct s_xchar
 {
 	char			c;
@@ -227,8 +223,6 @@ t_list				*str_to_xclst(const char *str, int x_flag, int q_flag);
 
 // XTOKENS
 
-// A stoken can be of type word, redirection, pipe or invalid.
-// It's value is defined as a list of xchars, with quote and expansion flags.
 typedef struct s_xtoken
 {
 	t_list			*val;

@@ -12,7 +12,6 @@
 
 #include "../inc/minishell.h"
 
-// Returns TRUE if 'str' is a valid word, FALSE otherwise.
 int	is_word(const char *str)
 {
 	int	q_stat;
@@ -30,9 +29,6 @@ int	is_word(const char *str)
 	return (TRUE);
 }
 
-// Given that 'str' points to a quote character, returns the distance to the
-// next quote character of the same kind.
-// If no next quote is found, returns the distance until the char before '\0'.
 static int	distance_next_quote(const char *str)
 {
 	int		dist;
@@ -47,7 +43,6 @@ static int	distance_next_quote(const char *str)
 	return (dist);
 }
 
-// Given that 'str' points to the beginning of a token, retuns its lenght.
 static int	toklen(const char *str)
 {
 	int	len;
@@ -83,7 +78,6 @@ static char	*pop_token(const char *str, int *i)
 	return (str_tok);
 }
 
-// Splits the recived 'input' into a list of tokens.
 t_list	*tokenize(const char *input)
 {
 	t_list	*tokens;

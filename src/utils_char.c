@@ -12,8 +12,6 @@
 
 #include "../inc/minishell.h"
 
-// Allocates and returns a substring from the string 's'.
-// The substring begins at index 'start' and is of maximum size 'len'.
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
@@ -39,7 +37,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (str);
 }
 
-// Returns TRUE if 'c' is a white-space character, FALSE otherwise.
 int	ft_isspace(int c)
 {
 	if (c == ' ' || c == '\t' || c == '\n' || c == '\v'
@@ -48,7 +45,6 @@ int	ft_isspace(int c)
 	return (FALSE);
 }
 
-// Returns TRUE if 'c' is an alphabetic character, FALSE otherwise.
 int	ft_isalpha(int c)
 {
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
@@ -56,7 +52,6 @@ int	ft_isalpha(int c)
 	return (FALSE);
 }
 
-// Returns TRUE if 'c' is a decimal digit character, FALSE otherwise.
 int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
@@ -64,7 +59,6 @@ int	ft_isdigit(int c)
 	return (FALSE);
 }
 
-// Returns TRUE if 'c' is an alphanumeric character, FALSE otherwise.
 int	ft_isalnum(int c)
 {
 	if (ft_isalpha(c) || ft_isdigit(c))
